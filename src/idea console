@@ -1,0 +1,56 @@
+create table  animals(
+    id serial primary key ,
+    firs_name varchar(50),
+    gender varchar(255),
+    age int
+
+);
+insert into animals(firs_name, gender, age)
+values
+    ('dog','male',5),
+    ('cat','male',7),
+    ('fox','female',12),
+    ('deer','male',5),
+    ('lion','female',8),
+    ('bear','male',3);
+
+create  table book_ak_keme(id serial primary key, book_name varchar,year int);
+insert into book_ak_keme(book_name, year)
+values
+    ('Ak-Keme',2003 );
+
+create table  samsung_51(id serial primary key, model varchar,year int,price int);
+insert into   samsung_51(model, year, price)
+values ('samsung_a51',2018,3500);
+
+create table  samsung_s23_ultra(id serial primary key, model varchar,year int,price int);
+insert into samsung_s23_ultra(model, year, price)
+values ('samsung_s23_ultra',2020,45000);
+
+create table  samsung(id serial primary key, model varchar,year int,price int);
+insert into samsung(model, year, price)
+values ('samsung_A31',2017,37000);
+
+create table samsung_a12(id serial primary key, model varchar,year int,price int,color varchar);
+insert into samsung_a12(model, year, price, color)
+values ('samsung_A12',2017,23000,'ak');
+
+create table  iphone11(id serial primary key , model varchar, year int,price int, color varchar,memory varchar);
+insert into iphone11(model, year, price, color, memory)
+values ('iphone11',2020,38000,'cara','256gm');
+
+create table  iphone12(id serial primary key , model varchar, year int,price int, color varchar,memory varchar);
+insert into iphone12(model, year, price, color, memory)
+values ('iphone12',2021,40000,'ak','256gm');
+
+create table  iphone13(id serial primary key , model varchar, year int,price int, color varchar,memory varchar);
+insert into iphone13(model, year, price, color, memory)
+values ('iphone13',2022,45000,'ak,kara','512gm');
+
+create table  iphone14(id serial primary key , model varchar, year int,price int, color varchar,memory varchar);
+insert into iphone14(model, year, price, color, memory)
+values ('iphone14',2023,45000,'ak,kara,kok','512gm');
+
+create table  iphone14pro(id serial primary key , model varchar, year int,price int, color varchar,memory varchar);
+insert into iphone14pro(model, year, price, color, memory)
+values ('iphone14pro',2023,65000,'ak,kara,kok,cary','1terabait');

@@ -1,0 +1,415 @@
+
+                         //// students ////
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Пароль пользователя postgres:
+psql (16.1)
+ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                страницы Windows (1251).
+                8-битовые (русские) символы могут отображаться некорректно.
+                Подробнее об этом смотрите документацию psql, раздел
+                "Notes for Windows users".
+Введите "help", чтобы получить справку.
+
+postgres=# insert into students('Kanat','Taichikov','male',23,'Pi-22'),('Asan','Akkulov','male',21,'BIS'),('Aizat','Dyisheeva','famale',21,'mentor');
+ОШИБКА:  ошибка синтаксиса (примерное положение: "'Kanat'")
+СТРОКА 1: insert into students('Kanat','Taichikov','male',23,'Pi-22'),...
+                               ^
+postgres=# select * from students
+postgres-# ;
+ id | fist_name | last_name | gender | age
+----+-----------+-----------+--------+-----
+(0 ёЄЁюъ)
+
+
+postgres=# insert into students('Kanat','Taichikov','male',23,'Pi-22'),('Asan','Akkulov','male',21,'BIS'),('Aizat','Dyisheeva','famale',21,'mentor');
+ОШИБКА:  ошибка синтаксиса (примерное положение: "'Kanat'")
+СТРОКА 1: insert into students('Kanat','Taichikov','male',23,'Pi-22'),...
+                               ^
+postgres=# insert into students('Kanat','Taichikov','male',23,'Pi-22'),('Asan','Akkulov','male',21,'BIS'),('Aizat','Dyisheeva','famale',21,'mentor');
+ОШИБКА:  ошибка синтаксиса (примерное положение: "'Kanat'")
+СТРОКА 1: insert into students('Kanat','Taichikov','male',23,'Pi-22'),...
+                               ^
+postgres=# insert into students(firs_name,last_name,gender,age) values ('Kanat','Taichikov','male',23,'Pi-22'),('Asan','Akkulov','male',21,'BIS'),('Aizat','Dyisheeva','famale',21,'mentor');
+ОШИБКА:  столбец "firs_name" в таблице "students" не существует
+СТРОКА 1: insert into students(firs_name,last_name,gender,age) values ...
+                               ^
+postgres=# select *from students
+postgres-# ;
+ id | fist_name | last_name | gender | age
+----+-----------+-----------+--------+-----
+(0 ёЄЁюъ)
+
+
+postgres=#  insert into students(firs_name,last_name,gender,age) values('Kanat','Taichikov','male',25,);
+ОШИБКА:  ошибка синтаксиса (примерное положение: ")")
+СТРОКА 1: ...ast_name,gender,age) values('Kanat','Taichikov','male',25,);
+                                                                       ^
+postgres=#  insert into students(firs_name,last_name,gender,age) values('Kanat','Taichikov','male',25);
+ОШИБКА:  столбец "firs_name" в таблице "students" не существует
+СТРОКА 1: insert into students(firs_name,last_name,gender,age) values(...
+                               ^
+postgres=#  insert into students(fist_name,last_name,gender,age) values('Kanat','Taichikov','male',25);
+INSERT 0 1
+postgres=# selet * from students
+postgres-# ;
+ОШИБКА:  ошибка синтаксиса (примерное положение: "selet")
+СТРОКА 1: selet * from students
+          ^
+postgres=# select * from students
+postgres-# ;
+ id | fist_name | last_name | gender | age
+----+-----------+-----------+--------+-----
+  1 | Kanat     | Taichikov | male   |  25
+(1 ёЄЁюър)
+
+
+postgres=#  insert into students(fist_name,last_name,gender,age) values('Asan','Akkulov','male',23);
+INSERT 0 1
+postgres=#  insert into students(fist_name,last_name,gender,age) values('Poza','Abdyjaparova','famale',19);
+INSERT 0 1
+postgres=# select * from students
+postgres-# ;
+ id | fist_name |  last_name   | gender | age
+----+-----------+--------------+--------+-----
+  1 | Kanat     | Taichikov    | male   |  25
+  2 | Asan      | Akkulov      | male   |  23
+  3 | Poza      | Abdyjaparova | famale |  19
+(3 ёЄЁюъш)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        ////  Car   //////
+
+ Server [localhost]:
+ Database [postgres]:
+ Port [5432]:
+ Username [postgres]:
+ Пароль пользователя postgres:
+ psql (16.1)
+ ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                 страницы Windows (1251).
+                 8-битовые (русские) символы могут отображаться некорректно.
+                 Подробнее об этом смотрите документацию psql, раздел
+                 "Notes for Windows users".
+ Введите "help", чтобы получить справку.
+
+ postgres=# create table  car(id serial primary key, firs_name varchak(50), color varchar(255), models varchar(70), age int);
+ ОШИБКА:  тип "varchak" не существует
+ СТРОКА 1: ...reate table  car(id serial primary key, firs_name varchak(50...
+                                                                ^
+ postgres=# create table  car(id serial primary key, firs_name varchar(50), color varchar(255), models varchar(70), age int);
+ CREATE TABLE
+ postgres=#  select * from car
+ postgres-# ;
+  id | firs_name | color | models | age
+ ----+-----------+-------+--------+-----
+ (0 ёЄЁюъ)
+
+
+ postgres=# insert info car(fist_name,color,models,age) values  ('Mers','rid','XS',20000);
+ ОШИБКА:  ошибка синтаксиса (примерное положение: "info")
+ СТРОКА 1: insert info car(fist_name,color,models,age) values  ('Mers',...
+                  ^
+ postgres=#  select * from car
+ postgres-# ;
+  id | firs_name | color | models | age
+ ----+-----------+-------+--------+-----
+ (0 ёЄЁюъ)
+
+
+ postgres=# insert into car(fist_name,color,models,age) values  ('Mers','rid','XS',20000);
+ ОШИБКА:  столбец "fist_name" в таблице "car" не существует
+ СТРОКА 1: insert into car(fist_name,color,models,age) values  ('Mers',...
+                           ^
+ postgres=# insert into car(fist_name, color, models, age) values  ('Mers','rid','XS',20000);
+ ОШИБКА:  столбец "fist_name" в таблице "car" не существует
+ СТРОКА 1: insert into car(fist_name, color, models, age) values  ('Mer...
+                           ^
+ postgres=# insert into car(firs_name, color, models, age) values  ('Mers','rid','XS',20000);
+ INSERT 0 1
+ postgres=#  select * from car
+ postgres-# ;
+  id | firs_name | color | models |  age
+ ----+-----------+-------+--------+-------
+   1 | Mers      | rid   | XS     | 20000
+ (1 ёЄЁюър)
+
+
+ postgres=# insert into car(firs_name, color, models, age) values  ('Mers','kara ','210v',250000);
+ INSERT 0 1
+ postgres=#  select * from car
+ postgres-# ;
+  id | firs_name | color | models |  age
+ ----+-----------+-------+--------+--------
+   1 | Mers      | rid   | XS     |  20000
+   2 | Mers      | kara  | 210v   | 250000
+ (2 ёЄЁюъш)
+
+
+ postgres=# insert into car(firs_name, color, models, age) values  ('BMW','kara ','X-5',250000);
+ INSERT 0 1
+ postgres=#  select * from car
+ postgres-# ;
+  id | firs_name | color | models |  age
+ ----+-----------+-------+--------+--------
+   1 | Mers      | rid   | XS     |  20000
+   2 | Mers      | kara  | 210v   | 250000
+   3 | BMW       | kara  | X-5    | 250000
+ (3 ёЄЁюъш)
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+
+       ////////  Hotel ////////////////
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Пароль пользователя postgres:
+psql (16.1)
+ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                страницы Windows (1251).
+                8-битовые (русские) символы могут отображаться некорректно.
+                Подробнее об этом смотрите документацию psql, раздел
+                "Notes for Windows users".
+Введите "help", чтобы получить справку.
+
+postgres=# create table Hotel( id serial primary key, firs_name varchar(50), number int,room varchar(255));
+CREATE TABLE
+postgres=#   select* from Hotel
+postgres-# ;
+ id | firs_name | number | room
+----+-----------+--------+------
+(0 ёЄЁюъ)
+
+
+postgres=# insert into Hotel(firs_name,number,room) values ('KG Group',8,'2-room'),('Batysh-Ata',11,'3-room'),('Avangart',15,'4-room');
+INSERT 0 3
+postgres=# select * from Hotel
+postgres-# ;
+ id | firs_name  | number |  room
+----+------------+--------+--------
+  1 | KG Group   |      8 | 2-room
+  2 | Batysh-Ata |     11 | 3-room
+  3 | Avangart   |     15 | 4-room
+(3 ёЄЁюъш)
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //////////////  school ////////////////
+
+  Server [localhost]:
+  Database [postgres]:
+  Port [5432]:
+  Username [postgres]:
+  Пароль пользователя postgres:
+  psql (16.1)
+  ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                  страницы Windows (1251).
+                  8-битовые (русские) символы могут отображаться некорректно.
+                  Подробнее об этом смотрите документацию psql, раздел
+                  "Notes for Windows users".
+  Введите "help", чтобы получить справку.
+
+  postgres=# craete table school(id serial primary key, firs_name varchar(50),students int);
+  ОШИБКА:  ошибка синтаксиса (примерное положение: "craete")
+  СТРОКА 1: craete table school(id serial primary key, firs_name varchar...
+            ^
+  postgres=# create table school(id serial primary key, firs_name varchar(50),students int);
+  CREATE TABLE
+  postgres=# select * from school
+  postgres-# ;
+   id | firs_name | students
+  ----+-----------+----------
+  (0 ёЄЁюъ)
+
+
+  postgres=# insert into school(fisr_name,students) values ('17-Kyla orto mektebi',700),('28-Chyngyz Aitmatov',1200);
+  ОШИБКА:  столбец "fisr_name" в таблице "school" не существует
+  СТРОКА 1: insert into school(fisr_name,students) values ('17-Kyla orto...
+                               ^
+  postgres=# insert into school(firs_name,students) values ('17-Kyla orto mektebi',700),('28-Chyngyz Aitmatov',1200);
+  INSERT 0 2
+  postgres=#  select * from school
+  postgres-# ;
+   id |      firs_name       | students
+  ----+----------------------+----------
+    1 | 17-Kyla orto mektebi |      700
+    2 | 28-Chyngyz Aitmatov  |     1200
+  (2 ёЄЁюъш)
+////////////////////////////////////////////////////////////////////////////////////
+
+   ///////////////// Peaksoft  ///////////////////////////
+Username [postgres]:
+Пароль пользователя postgres:
+psql (16.1)
+ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                страницы Windows (1251).
+                8-битовые (русские) символы могут отображаться некорректно.
+                Подробнее об этом смотрите документацию psql, раздел
+                "Notes for Windows users".
+Введите "help", чтобы получить справку.
+
+postgres=#  select * from Peaksoft
+postgres-# ;
+ id | firs_name | groups | name | age
+----+-----------+--------+------+-----
+(0 ёЄЁюъ)
+
+
+postgres=#
+postgres=# insert into Peaksoft(firs_name, groups,name,age) values ('backend','java-12','Urmat',20),('js','js-12','Nur',20);
+INSERT 0 2
+postgres=# select*from  Peaksoft
+postgres-# ;
+ id | firs_name | groups  | name  | age
+----+-----------+---------+-------+-----
+  1 | backend   | java-12 | Urmat |  20
+  2 | js        | js-12   | Nur   |  20
+(2 ёЄЁюъш)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////// Mers ////////////////
+
+postgres=# create table Mers(id serial primary key, firs_name varchar(50),marka varchar(40),year it);
+ОШИБКА:  тип "it" не существует
+СТРОКА 1: ...imary key, firs_name varchar(50),marka varchar(40),year it);
+                                                                     ^
+postgres=# create table Mers(id serial primary key, firs_name varchar(50),marka varchar(40),year int);
+CREATE TABLE
+postgres=# celect * from Mers
+postgres-# ;
+ОШИБКА:  ошибка синтаксиса (примерное положение: "celect")
+СТРОКА 1: celect * from Mers
+          ^
+postgres=# select * from Mers
+postgres-# ;
+ id | firs_name | marka | year
+----+-----------+-------+------
+(0 ёЄЁюъ)
+
+
+postgres=# insert into Mers(firs_name,marka,year) values ('Mers','W124',1994),('Mers','X-class',2018);
+INSERT 0 2
+postgres=# select * from Mers
+postgres-# ;
+ id | firs_name |  marka  | year
+----+-----------+---------+------
+  1 | Mers      | W124    | 1994
+  2 | Mers      | X-class | 2018
+(2 ёЄЁюъш)
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ /////// Audi ////////////////////////////////////////
+
+ Port [5432]:
+ Username [postgres]:
+ Пароль пользователя postgres:
+ psql (16.1)
+ ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                 страницы Windows (1251).
+                 8-битовые (русские) символы могут отображаться некорректно.
+                 Подробнее об этом смотрите документацию psql, раздел
+                 "Notes for Windows users".
+ Введите "help", чтобы получить справку.
+
+ postgres=# select * from Audi
+ postgres-# ;
+  id | firs_name | marka | year
+ ----+-----------+-------+------
+ (0 ёЄЁюъ)
+
+
+ postgres=# insert into Audi(firs_name,marka,year) values ('Audi','RS6',2015),('Audi','S100',2009);
+ INSERT 0 2
+ postgres=# select * from Audi
+ postgres-# ;
+  id | firs_name | marka | year
+ ----+-----------+-------+------
+   1 | Audi      | RS6   | 2015
+   2 | Audi      | S100  | 2009
+ (2 ёЄЁюъш)
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  /////////////////////////////// Tesla //////////////////////////////////////////////////////////////
+
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Пароль пользователя postgres:
+psql (16.1)
+ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                страницы Windows (1251).
+                8-битовые (русские) символы могут отображаться некорректно.
+                Подробнее об этом смотрите документацию psql, раздел
+                "Notes for Windows users".
+Введите "help", чтобы получить справку.
+
+postgres=# create table tesla('id serial primary key',' firs_name varchar','marka varchar','year,color varchar');
+ОШИБКА:  ошибка синтаксиса (примерное положение: "'id serial primary key'")
+СТРОКА 1: create table tesla('id serial primary key',' firs_name varch...
+                             ^
+postgres=# create table tesla(id serial primary key, firs_name varchar,marka varchar,year int ,color varchar);
+CREATE TABLE
+postgres=# ;
+postgres=# select * from tesla
+postgres-# ;
+ id | firs_name | marka | year | color
+----+-----------+-------+------+-------
+(0 ёЄЁюъ)
+
+
+postgres=#
+postgres=# insert into tesla(firs_name,marka,year,color), values ('Tesla','X-tesla',2007,'black');
+ОШИБКА:  ошибка синтаксиса (примерное положение: ",")
+СТРОКА 1: insert into tesla(firs_name,marka,year,color), values ('Tesl...
+                                                       ^
+postgres=# insert into tesla(firs_name,marka,year,color) values ('Tesla','X-tesla',2007,'black');
+INSERT 0 1
+postgres=# select * from tesla
+postgres-# ;
+ id | firs_name |  marka  | year | color
+----+-----------+---------+------+-------
+  1 | Tesla     | X-tesla | 2007 | black
+
+  ////////////////////////////////////////////////////////////////////////////////////////
+
+  //////////////// bmw /////////////////////////////////////////////////
+
+  postgres=# cretale table bmw(id serial primary key,fisr_name varchar, marka varchar, year int, color varchar);
+  ОШИБКА:  ошибка синтаксиса (примерное положение: "cretale")
+  СТРОКА 1: cretale table bmw(id serial primary key,fisr_name varchar, m...
+            ^
+  postgres=# create table bmw(id serial primary key,fisr_name varchar, marka varchar, year int, color varchar);
+  CREATE TABLE
+  postgres=# select * from bmw
+  postgres-# ;
+   id | fisr_name | marka | year | color
+  ----+-----------+-------+------+-------
+  (0 ёЄЁюъ)
+
+
+  postgres=#  insert into bmw(fist_name,marka,year,color) values ('BMW','M5F90',2018,'white')
+  postgres-# ;
+  ОШИБКА:  столбец "fist_name" в таблице "bmw" не существует
+  СТРОКА 1: insert into bmw(fist_name,marka,year,color) values ('BMW','M...
+                            ^
+  postgres=#  insert into bmw(fisr_name,marka,year,color) values ('BMW','M5F90',2018,'white');
+  INSERT 0 1
+  postgres=# select * from bmw
+  postgres-# ;
+   id | fisr_name | marka | year | color
+  ----+-----------+-------+------+-------
+    1 | BMW       | M5F90 | 2018 | white
+  (1 ёЄЁюър)
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////
